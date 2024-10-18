@@ -19,11 +19,11 @@ app.get("/Games/:parametro", function(req,res){
 })
 
 //rota com parametro opcional
-app.get("/cadastro/:jogo?", function(req,res){
+app.get("/cadastro/:usuario?", function(req,res){
     //req --> dados enviados pelo cliente
-    var jogo = req.params.game;
-    if (jogo){
-        res.send("<h1>Item " + jogo + " criado!</h1>");
+    var usuario = req.params.usuario;
+    if (usuario){
+        res.send("<h1>Item " + usuario + " criado!</h1>");
     }else{
         res.send("Item criado!");
     }
