@@ -3,19 +3,31 @@ const app = express(); //iniciando o express
 
 //criando a rota inicial
 app.get("/", function(req,res){
-    res.send("<h1>Bem vindo ao meu site!</h1>");
+    res.send("<h1>Bem vindo a Steam pirateada kkk</h1>");
 })
 
 //rota do cadastro de produtos
-app.get("/produtos", function(req,res){
-    res.send("<h1>Lista de Produtos!</h1>");
+app.get("/Games", function(req,res){
+    res.send("<h1>Lista de Games!!! :D</h1>");
 })
 
 //rota com parametro 
-app.get("/consulta/:parametro", function(req,res){
+app.get("/Games/:parametro", function(req,res){
     //req --> dados enviados pelo cliente
     //res --> resposta enviada pelo servidor de volta ao cliente
-    res.send("retorno consulta:" + req.params.parametro);
+    res.send("Game:" + req.params.parametro);
+})
+
+//rota com parametro opcional
+app.get("/cadastro/:jogo?", function(req,res){
+    //req --> dados enviados pelo cliente
+    var jogo = req.params.game;
+    if (jogo){
+        res.send("<h1>Item " + jogo + " criado!</h1>");
+    }else{
+        res.send("Item criado!");
+    }
+    
 })
 
 app.listen(process.env.PORT ?? 3000,function(erro){  // cria a aplicação na porta 4000
